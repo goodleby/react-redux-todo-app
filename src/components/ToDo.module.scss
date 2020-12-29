@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.content {
+  flex-grow: 1;
+}
+.main {
+}
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.edit {
+}
+.input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  outline: none;
+  color: #fff;
+  &:hover,
+  &:focus {
+    border-color: #888;
+  }
+}
+.buttons {
+  margin-left: 10px;
+}
+.button {
+  cursor: pointer;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  margin-right: 6px;
+  color: #fff;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: #666;
+  }
+}
