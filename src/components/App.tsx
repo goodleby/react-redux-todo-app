@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux';
-import styles from './App.module.scss';
+import style from './App.module.scss';
 import Controls from './Controls';
-import ToDoList from './ToDoList';
-import { selectTodos } from '../features/todoSlice';
+import ToDoList from '../features/todo/ToDoList';
+import { selectTodos } from '../features/todo/todoSlice';
 
 export default function App() {
   const appTitle = 'To Do:';
   const todos = useSelector(selectTodos);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>{appTitle}</h1>
+    <div className={style.wrapper}>
+      <div className={style.content}>
+        <h1 className={style.title}>{appTitle}</h1>
         <Controls />
         <ToDoList todos={todos} />
       </div>

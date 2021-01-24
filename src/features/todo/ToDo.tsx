@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './ToDo.module.scss';
-import { remove, update } from '../features/todoSlice';
-import { ToDoType } from '../types/todo';
+import style from './ToDo.module.scss';
+import { removeTodo, updateTodo } from './todoSlice';
+import { ToDoType } from './todoSlice';
 
 export type ToDoProps = {
   todo: ToDoType;
@@ -22,16 +22,16 @@ export default function ToDo({ todo }: ToDoProps) {
     setEdit(false);
     const updatedTodo = { ...todo, title };
     if (JSON.stringify(todo) !== JSON.stringify(updatedTodo)) {
-      dispatch(update({ todoId: todo.id, updatedTodo }));
+      dispatch(updateTodo(updatedTodo));
     }
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.content}>
+    <div className={style.wrapper}>
+      <div className={style.content}>
         {!isEdit ? (
-          <div className={styles.main}>
-            <h2 className={styles.title} onClick={startEdit}>
+          <div className={style.main}>
+            <h2 className={style.title} onClick={startEdit}>
               {title}
             </h2>
           </div>
@@ -41,12 +41,12 @@ export default function ToDo({ todo }: ToDoProps) {
               e.preventDefault();
               stopEdit();
             }}
-            className={styles.edit}
+            className={style.edit}
           >
             <input
               ref={editInput}
               type="text"
-              className={styles.input}
+              className={style.input}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               onBlur={() => {
@@ -56,15 +56,15 @@ export default function ToDo({ todo }: ToDoProps) {
           </form>
         )}
       </div>
-      <div className={styles.buttons}>
+      <div className={style.buttons}>
         <button
-          className={styles.button}
-          onClick={() => dispatch(remove(todo.id))}
+          className={style.button}
+          onClick={() => dispatch(removeTodo(todo.id))}
         >
           ❌
         </button>
         <button
-          className={styles.button}
+          className={style.button}
           onMouseDown={() => {
             if (isEdit) stopEdit();
             else startEdit();

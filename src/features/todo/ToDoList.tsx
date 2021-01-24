@@ -1,6 +1,6 @@
-import styles from './ToDoList.module.scss';
+import style from './ToDoList.module.scss';
 import ToDo from './ToDo';
-import { ToDoType } from '../types/todo';
+import { ToDoType } from './todoSlice';
 
 export type ToDoListProps = {
   todos: ToDoType[];
@@ -8,9 +8,9 @@ export type ToDoListProps = {
 
 export default function ToDoList({ todos }: ToDoListProps) {
   return (
-    <div className={styles.wrapper}>
+    <div className={style.wrapper}>
       {todos.map((todo) => (
-        <div className={styles.item} key={todo.id}>
+        <div className={style.item} key={todo.id}>
           <ToDo todo={todo} />
         </div>
       ))}

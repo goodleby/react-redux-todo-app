@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './Controls.module.scss';
-import { add } from '../features/todoSlice';
+import style from './Controls.module.scss';
+import { addTodo } from '../features/todo/todoSlice';
 
 export default function Controls() {
   const [title, setTitle] = useState('');
@@ -9,22 +9,22 @@ export default function Controls() {
 
   return (
     <form
-      className={styles.wrapper}
+      className={style.wrapper}
       onSubmit={(e) => {
         e.preventDefault();
-        dispatch(add({ title }));
+        dispatch(addTodo({ title }));
         setTitle('');
       }}
     >
       <input
         type="text"
-        className={styles.input}
+        className={style.input}
         placeholder="What to do?"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div className={styles.buttons}>
-        <button className={styles.button}>Add</button>
+      <div className={style.buttons}>
+        <button className={style.button}>Add</button>
       </div>
     </form>
   );
