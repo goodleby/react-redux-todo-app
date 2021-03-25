@@ -1,10 +1,11 @@
+import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import style from './App.module.scss';
 import Controls from './Controls';
 import ToDoList from '../features/todo/ToDoList';
 import { selectTodos } from '../features/todo/todoSlice';
 
-export default function App() {
+export const App: FunctionComponent = () => {
   const appTitle = 'To Do:';
   const todos = useSelector(selectTodos);
 
@@ -17,4 +18,6 @@ export default function App() {
       </div>
     </div>
   );
-}
+};
+
+export default App;

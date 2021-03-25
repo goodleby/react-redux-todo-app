@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './ToDo.module.scss';
 import { removeTodo, updateTodo } from './todoSlice';
@@ -8,7 +8,7 @@ export type ToDoProps = {
   todo: ToDoType;
 };
 
-export default function ToDo({ todo }: ToDoProps) {
+export const ToDo: FunctionComponent<ToDoProps> = ({ todo }) => {
   const [title, setTitle] = useState(todo.title);
   const [isEdit, setEdit] = useState(false);
   const editInput = useRef<HTMLInputElement | null>(null);
@@ -75,4 +75,6 @@ export default function ToDo({ todo }: ToDoProps) {
       </div>
     </div>
   );
-}
+};
+
+export default ToDo;

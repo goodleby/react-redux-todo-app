@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './Controls.module.scss';
 import { addTodo } from '../features/todo/todoSlice';
 
-export default function Controls() {
+export const Controls: FunctionComponent = () => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
@@ -28,4 +28,6 @@ export default function Controls() {
       </div>
     </form>
   );
-}
+};
+
+export default Controls;
